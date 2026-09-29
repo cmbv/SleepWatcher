@@ -1,0 +1,26 @@
+# sleepwatcher config file: use with `sleepwatcher -f FILE`, reload with `kill -HUP <pid>`.
+# One long option name per line, `name = value` or just `name`. Lines starting
+# with # or ; are comments. Values are passed to /bin/sh -c as-is, so ~ works.
+
+verbose
+hooktimeout = 20
+
+sleep = ~/.sleep
+wakeup = ~/.wakeup
+# Power Nap / maintenance wakes as well as full wakes:
+# anywake = ~/.anywake
+
+# lock = ~/.lock
+# unlock = ~/.unlock
+
+# displaysleep = ~/.displaysleep
+# displaywakeup = ~/.displaywakeup
+
+# timeout = 10m
+# idle = ~/.idle
+# idleresume = ~/.idleresume
+
+# plug = ~/.plug
+# unplug = ~/.unplug
+# lidclose = ~/.lidclose
+# lidopen = ~/.lidopen

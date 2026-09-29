@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Installed by `make install-agent`; @...@ placeholders are filled in by the Makefile. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>@LABEL@</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>@BINDIR@/sleepwatcher</string>
+		<string>-V</string>
+		<string>-s</string>
+		<string>@HOME@/.sleep</string>
+		<string>-w</string>
+		<string>@HOME@/.wakeup</string>
+	</array>
+	<!-- Or put everything in a config file instead:
+		<string>-f</string>
+		<string>@HOME@/.config/sleepwatcher/sleepwatcher.conf</string>
+	-->
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<!-- The login session is where full-wake, screen sleep and lock events are delivered. -->
+	<key>LimitLoadToSessionType</key>
+	<string>Aqua</string>
+	<!-- Keeps hooks from being throttled in the short window before sleep. -->
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<!-- launchd's default PATH lacks Homebrew. -->
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>StandardOutPath</key>
+	<string>@HOME@/Library/Logs/sleepwatcher.log</string>
+	<key>StandardErrorPath</key>
+	<string>@HOME@/Library/Logs/sleepwatcher.log</string>
+</dict>
+</plist>
